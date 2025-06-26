@@ -1,0 +1,38 @@
+Como cliente da EBAC-SHOP
+Quero configurar meu produto de acordo com meu tamanho e gosto
+E escolher a quantidade
+Para depois inserir no carrinho
+Critérios de Aceitação:
+1 – Seleções de cor, tamanho e quantidade devem ser obrigatórios
+2 – Deve permitir apenas 10 produtos por venda
+3 –Quando eu clicar no botão “limpar” deve voltar ao estado original--
+
+  Como cliente da EBAC-SHOP
+  Quero configurar meu produto de acordo com meu tamanho e gosto
+  E escolher a quantidade
+  Para depois inserir no carrinho
+
+  Cenário: Selecionar cor, tamanho e quantidade corretamente
+    Dado que estou na página do produto
+    Quando eu selecionar a cor "Preto"
+    E selecionar o tamanho "M"
+    E selecionar a quantidade "2"
+    E clicar no botão "Adicionar ao carrinho"
+    Então o produto deve ser adicionado ao carrinho com as opções escolhidas
+
+  Cenário: Tentar adicionar ao carrinho sem selecionar cor, tamanho ou quantidade
+    Dado que estou na página do produto
+    Quando eu clicar no botão "Adicionar ao carrinho" sem preencher todos os campos
+    Então deve aparecer uma mensagem de erro indicando que todos os campos são obrigatórios
+
+  Cenário: Selecionar quantidade maior que 10
+    Dado que estou na página do produto
+    Quando eu tentar selecionar a quantidade "11"
+    Então deve aparecer uma mensagem dizendo "Máximo de 10 unidades por venda"
+    E o produto não deve ser adicionado ao carrinho
+
+  Cenário: Clicar no botão "Limpar"
+    Dado que selecionei uma cor, tamanho e quantidade
+    Quando eu clicar no botão "Limpar"
+    Então todos os campos devem voltar ao estado original
+    E nenhuma opção deve estar selecionada
